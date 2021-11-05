@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID,
+    apiKey: "AIzaSyAHyb0hbQxJUiu9bTqQlDQ7zHhbYYNUr6c",
+    authDomain: "doccure-171d2.firebaseapp.com",
+    projectId: "doccure-171d2",
+    storageBucket: "doccure-171d2.appspot.com",
+    messagingSenderId: "202920098689",
+    appId: "1:202920098689:web:9933f89de9dcad0e090680"
   };
 
   export default firebaseConfig
