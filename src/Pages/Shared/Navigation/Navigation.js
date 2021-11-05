@@ -1,4 +1,4 @@
-import MenuIcon from '@mui/icons-material/Menu';
+import { Menu as MenuIcon } from "@material-ui/icons";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
@@ -24,6 +25,7 @@ const Navigation = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Doccure
             </Typography>
+            <Link to="/appointment"> <Button color="inherit">Appointment</Button> </Link>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
