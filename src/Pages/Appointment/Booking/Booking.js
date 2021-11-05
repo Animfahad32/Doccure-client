@@ -9,7 +9,7 @@ import BookingModal from '../BookingModal/BookingModal';
 
 
 
-const Booking = ({booking}) => {
+const Booking = ({booking , date}) => {
     const [openBooking, setBookingOpen] = React.useState(false);
     const handleBookingOpen = () => setBookingOpen(true);
     const handleBookingClose = () => setBookingOpen(false);
@@ -35,6 +35,7 @@ const Booking = ({booking}) => {
             </Grid>
             <BookingModal 
                 booking={booking}
+                date={date}
                 openBooking={openBooking}
                 handleBookingClose={handleBookingClose}
             ></BookingModal>
