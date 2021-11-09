@@ -1,6 +1,7 @@
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { Button, Divider } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,13 +15,24 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import {
+  Link, Route, Switch, useRouteMatch
+} from "react-router-dom";
+import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import AddDoctor from '../AddDoctor/AddDoctor';
+import DashboardHome from '../DashboardHome/DashboardHome';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  let { path, url } = useRouteMatch();
+  const {admin} = useAuth()
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -28,7 +40,18 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      <Divider/>
+      <Link to="/appointment"> <Button color="inherit">Book An Appointment</Button> </Link>
+      <Link to={`${url}`}> <Button color="inherit">Dashboard</Button> </Link>
+    {
+      admin && <Box>
+          <Link to={`${url}/makeAdmin`}> <Button color="inherit">Make Admin</Button> </Link>
+      <Link to={`${url}/addDoctor`}> <Button color="inherit">Add Doctor</Button> </Link>
+      </Box>
+    }
       
+      
+  
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -107,12 +130,21 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-         content here
-        </Typography>
-        <Typography paragraph>
-            content here
-        </Typography>
+       
+        <Switch>
+        <Route exact path={path}>
+          <DashboardHome></DashboardHome>
+        </Route>
+        <AdminRoute path={`${path}/makeAdmin`}>
+          <MakeAdmin></MakeAdmin>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addDoctor`}>
+          <AddDoctor></AddDoctor>
+        </AdminRoute>
+      </Switch>
+       
+       
+       
       </Box>
     </Box>
   );
