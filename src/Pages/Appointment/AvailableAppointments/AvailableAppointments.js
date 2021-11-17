@@ -9,36 +9,42 @@ const bookings = [
         name: 'Teeth Orthodontics',
         time: '8:00 am - 9:00 am',
         space: 10,
+        price: 10
     },
     {
         id: 2,
         name: 'Costmetic Dentistry',
         time: '10:05 am - 11:30 am',
         space: 10,
+        price: 15
     },
     {
         id: 3,
         name: 'Teeth Cleaning',
         time: '5:00 pm - 6:30 pm',
         space: 10 ,
+        price: 20
     },
     {
         id: 4,
         name: 'Cavity Protection',
         time: '7:00 am - 8:30 am',
         space: 10 ,
+        price: 19
     },
     {
         id: 5,
         name: 'Dental Crowns',
         time: '9:00 am to 10:30 am',
         space: 10,
+        price: 12
     },
     {
         id: 6,
         name: 'Dental Veneers',
         time: '11:50 am to 1:30 pm',
         space: 10 ,
+        price: 13
     }
 ]
 const AvailableAppointments = ({date}) => {

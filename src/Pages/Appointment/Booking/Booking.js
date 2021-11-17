@@ -14,7 +14,7 @@ const Booking = ({booking , date, setBookingSuccess}) => {
     const handleBookingOpen = () => setBookingOpen(true);
     const handleBookingClose = () => setBookingOpen(false);
     const color = teal[600];
-    const {name, time, space} = booking;
+    const {name, time, space, price} = booking;
     return (
         
            <>
@@ -28,6 +28,9 @@ const Booking = ({booking , date, setBookingSuccess}) => {
                 </Typography>
                 <Typography variant="caption" gutterBottom component="div">
                     {space} Spaces Available
+                </Typography>
+                <Typography variant="caption" gutterBottom component="div">
+                    Price ${price}
                 </Typography>
                 <Button onClick={handleBookingOpen}  variant="contained" sx={{mt:2}}>BOOK APPOINTMENT</Button>
 
